@@ -7,9 +7,9 @@ jobs:
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
           PGHOST: 127.0.0.1
-          PGUSER: c200
+          PGUSER: circleci-demo
           MYAPP_DATABASE_HOST_PATH: localhost
-          MYAPP_DATABASE_USERNAME: c200
+          MYAPP_DATABASE_USERNAME: circleci-demo
           RAILS_ENV: development
           CHROME_BIN: /usr/bin/google-chrome
       - image: circleci/postgres:9.6-alpine
