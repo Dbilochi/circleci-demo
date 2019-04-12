@@ -14,8 +14,8 @@ jobs:
           CHROME_BIN: /usr/bin/google-chrome
       - image: circleci/postgres:9.6-alpine
         environment:
-          POSTGRES_USER: c200
-          POSTGRES_DB: demo_dev
+          POSTGRES_USER: circleci-demo
+          POSTGRES_DB: circleci-demo_test
           POSTGRES_PASSWORD: ""
       # - image: yukinying/chrome-headless-browser
       #   environment:
