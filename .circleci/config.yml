@@ -89,6 +89,16 @@ jobs:
           name: Deploy Master to Heroku
           command: |
             git push https://heroku:0a8d4a69-635e-4b1d-9611-9f7951c03b26@git.heroku.com/mysterious-reaches-90541.git master
+      - run:
+          name: Heroku Migration
+          command: |
+          heroku run rails db:migrate -a mysterious-reaches-90541
+          sleep 5
+          heroku restart -a mysterious-reaches-90541
+      - run:
+          name: Heroku Seed
+          command: |
+          heroku run rails db:seed -a mysterious-reaches-90541
   # deploy:
   #   docker:
   #     - image: buildpack-deps:trusty
@@ -105,12 +115,6 @@ jobs:
   #         name: Deploy Master to Heroku
   #         command: |
   #           git push https://heroku:0a8d4a69-635e-4b1d-9611-9f7951c03b26@git.heroku.com/mysterious-reaches-90541.git master
-  #     - run:
-  #         name: Heroku Migration
-  #         command: |
-  #           heroku run rails db:migrate -a mysterious-reaches-90541
-  #           sleep 5
-  #           heroku restart -a mysterious-reaches-90541
 
 workflows:
   version: 2
