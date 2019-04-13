@@ -97,7 +97,6 @@ jobs:
               password $HEROKU_TOKEN
               EOF
               chmod 600 ~/.netrc # Heroku cli complains about permissions without this
-              "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]]"
               git push https://heroku:0a8d4a69-635e-4b1d-9611-9f7951c03b26@git.heroku.com/mysterious-reaches-90541.git master
               heroku run rake db:migrate -a mysterious-reaches-90541
       # - run:
