@@ -92,13 +92,13 @@ jobs:
       - run:
           name: Heroku Migration
           command: |
-          heroku run rails db:migrate -a mysterious-reaches-90541
-          sleep 5
-          heroku restart -a mysterious-reaches-90541
+            heroku run rails db:migrate -a mysterious-reaches-90541
+            sleep 5
+            heroku restart -a mysterious-reaches-90541
       - run:
           name: Heroku Seed
           command: |
-          heroku run rails db:seed -a mysterious-reaches-90541
+            heroku run rails db:seed -a mysterious-reaches-90541
   # deploy:
   #   docker:
   #     - image: buildpack-deps:trusty
