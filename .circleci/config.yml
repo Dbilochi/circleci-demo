@@ -90,6 +90,10 @@ jobs:
           command: |
             git push https://heroku:0a8d4a69-635e-4b1d-9611-9f7951c03b26@git.heroku.com/mysterious-reaches-90541.git master
       - run:
+          name: Heroku CLI Install
+          command: |
+            curl https://cli-assets.heroku.com/install.sh | sh
+      - run:
           name: Heroku Migration
           command: |
             heroku run rails db:migrate -a mysterious-reaches-90541
@@ -107,10 +111,6 @@ jobs:
   #         PASSWORD: 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
   #   steps:
   #     - checkout
-  #     - run:
-  #         name: Heroku CLI Install
-  #         command: |
-  #           curl https://cli-assets.heroku.com/install.sh | sh
   #     - run:
   #         name: Deploy Master to Heroku
   #         command: |
