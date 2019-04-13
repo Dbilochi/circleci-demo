@@ -98,8 +98,8 @@ jobs:
               EOF
               chmod 600 ~/.netrc # Heroku cli complains about permissions without this
               git push https://heroku:0a8d4a69-635e-4b1d-9611-9f7951c03b26@git.heroku.com/mysterious-reaches-90541.git master
-              heroku run rake db:migrate -a mysterious-reaches-90541
-              heroku run rake db:seed -a mysterious-reaches-90541
+          # heroku run rake db:migrate -a mysterious-reaches-90541
+              heroku run rails db:seed -a mysterious-reaches-90541
       # - run:
       #     name: Heroku CLI Install
       #     command: |
