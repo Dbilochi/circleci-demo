@@ -85,9 +85,11 @@ jobs:
       HEROKU_APP: "mysterious-reaches-90541"
     steps:
       - checkout
+      - type: add-ssh-keys
       - run:
           name: Deploy Master to Heroku
           command: |
+            echo 'heroku.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6AGh0yZTFaRzre1uYqdXY2tkUgMvSD37f4Q5HIHGb4qTwMSQJRuGQd11CYDTDjD5eIaMYp4TJyk3n7LHVnu7Xea9374LhjDW/Z/8eshniIagOKzCt5hgydDbTg3oqdBRzDZbYNb8YEfBconIlkOVBhehc8cTnoun8I5K2BbVBBitGnPgsAkm+ogGJUHV/zY3CdUsbMGqmtxbTzWqi4YOYiCYXTifdsBOIE3G3E42iwYSIfp8qiegqO8rN7b+Fh5LGzq+mXMDYb+FwTebUBGInBDDACY6jFIEAuQdqvik2d0FeudbX2Ro3CIK6L3V2IR8Sz6MJrYU/Fbxz1yKJb2DR' >> ~/.ssh/known_hosts
             git push https://heroku:0a8d4a69-635e-4b1d-9611-9f7951c03b26@git.heroku.com/mysterious-reaches-90541.git master
             heroku run rake db:migrate -a mysterious-reaches-90541
       # - run:
